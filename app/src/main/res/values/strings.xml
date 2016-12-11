@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MyStudentAppFrag</string>
+    <string name="title_activity_student_list">Students List</string>
+    <string name="Name">Name:</string>
+    <string name="ID">ID:</string>
+    <string name="Image">Image:</string>
+    <string name="Phone">Phone:</string>
+    <string name="Address">Address:</string>
+    <string name="Edit">Edit</string>
+    <string name="AddStudent">Add Student</string>
+    <string name="save_button">Save</string>
+    <string name="delete_button">Delete</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="checkbox_string">CheckBox</string>
+
 </resources>
