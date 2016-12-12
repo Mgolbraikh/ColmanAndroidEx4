@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         final StudentListFrag studentlistFragment = new StudentListFrag();
 
         FragmentTransaction ftr = getFragmentManager().beginTransaction();
-        ftr.add(R.id.StudentListFragmentview,studentlistFragment);
+        ftr.replace(R.id.StudentListFragmentview,studentlistFragment);
         ftr.show(studentlistFragment);
         ftr.commit();
         //ftr.show(studentlistFragment);
