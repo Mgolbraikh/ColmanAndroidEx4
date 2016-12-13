@@ -31,10 +31,6 @@ public class MainActivity extends Activity {
         ftr.commit();
         //ftr.show(studentlistFragment);
     }
-
-
-
-
 }
 
 
