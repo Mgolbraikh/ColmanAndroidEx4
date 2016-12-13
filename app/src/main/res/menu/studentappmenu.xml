@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/AddStudentButton"
+        android:icon="@drawable/add_button"
+        android:title="@string/AddStudent"
+        android:visible="false"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/EditStudentButton"
+        android:icon="@drawable/edit_button"
+        android:visible="false"
+        android:title="@string/Edit" />
+</menu>

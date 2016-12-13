@@ -10,6 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -45,6 +48,10 @@ public class StudentListFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        // inflate the menu
+        setHasOptionsMenu(true);
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.student_list_frag, container, false);
 
@@ -76,6 +83,40 @@ public class StudentListFrag extends Fragment {
 //            }
 //        });
         return view;
+    }
+
+    /*
+    * This updates only when the fragment starts
+    * */
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.studentappmenu,menu);
+
+        menu.findItem(R.id.AddStudentButton).setVisible(true);
+        menu.findItem(R.id.EditStudentButton).setVisible(false);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.AddStudentButton:
+            {
+                //onBackPressed();
+                break;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+/*
+   * To update the menu every time it is displayed
+    */
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
     }
 
     class StudentsAdapter extends BaseAdapter {
