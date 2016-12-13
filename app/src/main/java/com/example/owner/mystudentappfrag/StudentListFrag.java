@@ -6,6 +6,8 @@ package com.example.owner.mystudentappfrag;
 
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -96,6 +98,7 @@ public class StudentListFrag extends Fragment {
         menu.findItem(R.id.AddStudentButton).setVisible(true);
         menu.findItem(R.id.EditStudentButton).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
+        // return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -103,6 +106,13 @@ public class StudentListFrag extends Fragment {
         {
             case R.id.AddStudentButton:
             {
+                Fragment studentaddfragview = new StudentAddFrag();
+
+                FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
+                ftr.replace(R.id.StudentListFragmentview, studentaddfragview);
+                ftr.show(studentaddfragview);
+                ftr.commit();
+
                 //onBackPressed();
                 break;
             }
