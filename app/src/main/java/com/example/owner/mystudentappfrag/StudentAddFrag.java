@@ -85,21 +85,14 @@ public class StudentAddFrag extends Fragment {
                     Model.instance().addStudent(st);
                     Log.d("TAG", "saving student to the db");
 
-                    // TODO - go back to the student list view. after save
-                    // NOT WORKLING - getActivity().getFragmentManager().popBackStack();
+                    getActivity().getFragmentManager().popBackStack();
                 }
             });
 
         view.findViewById(R.id.StudentAddCancelButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment studentListFrag = new StudentListFrag();
-
-                FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
-                ftr.replace(R.id.StudentListFragmentview, studentListFrag);
-                ftr.show(studentListFrag);
-                ftr.commit();
-                Log.d("TAG", "CANCEL pressed from student and go to studentlist");
+                getActivity().getFragmentManager().popBackStack();
             }
         });
 

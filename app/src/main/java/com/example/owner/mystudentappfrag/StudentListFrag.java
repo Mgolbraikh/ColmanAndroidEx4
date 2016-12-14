@@ -109,8 +109,10 @@ public class StudentListFrag extends Fragment {
                 Fragment studentaddfragview = new StudentAddFrag();
 
                 FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
-                ftr.replace(R.id.StudentListFragmentview, studentaddfragview);
+                ftr.add(R.id.StudentListFragmentview, studentaddfragview);
+                ftr.addToBackStack(null);
                 ftr.show(studentaddfragview);
+                ftr.hide(this);
                 ftr.commit();
 
                 //onBackPressed();
