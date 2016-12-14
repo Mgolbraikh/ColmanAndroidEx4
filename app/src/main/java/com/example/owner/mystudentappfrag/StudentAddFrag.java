@@ -84,7 +84,9 @@ public class StudentAddFrag extends Fragment {
 
                     Model.instance().addStudent(st);
                     Log.d("TAG", "saving student to the db");
-                    // TODO - go back to the student list view.
+
+                    // TODO - go back to the student list view. after save
+                    // NOT WORKLING - getActivity().getFragmentManager().popBackStack();
                 }
             });
 
