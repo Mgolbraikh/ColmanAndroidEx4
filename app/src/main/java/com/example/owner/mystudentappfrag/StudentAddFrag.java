@@ -1,6 +1,7 @@
 package com.example.owner.mystudentappfrag;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -90,7 +91,13 @@ public class StudentAddFrag extends Fragment {
         view.findViewById(R.id.StudentAddCancelButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // TODO - make the buttons move through the tabs
+                Fragment studentListFrag = new StudentListFrag();
+
+                FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
+                ftr.replace(R.id.StudentListFragmentview, studentListFrag);
+                ftr.show(studentListFrag);
+                ftr.commit();
+                Log.d("TAG", "CANCEL pressed from student and go to studentlist");
             }
         });
 
