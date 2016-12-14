@@ -1,20 +1,11 @@
 package com.example.owner.mystudentappfrag;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.TextView;
-
-import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -29,7 +20,7 @@ public class MainActivity extends Activity {
         final StudentListFrag studentlistFragment = new StudentListFrag();
 
         FragmentTransaction ftr = getFragmentManager().beginTransaction();
-        ftr.replace(R.id.StudentListFragmentview,studentlistFragment);
+        ftr.replace(R.id.StudentActivityMainView,studentlistFragment);
         ftr.show(studentlistFragment);
         ftr.commit();
         //ftr.show(studentlistFragment);
