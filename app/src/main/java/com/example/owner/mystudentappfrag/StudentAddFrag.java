@@ -106,24 +106,12 @@ public class StudentAddFrag extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.studentappmenu,menu);
+        getActivity().setTitle("New Students");
 
         menu.findItem(R.id.AddStudentButton).setVisible(false);
         menu.findItem(R.id.EditStudentButton).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
         // return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.AddStudentButton:
-            {
-                //onBackPressed();
-                break;
-            }
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /*
