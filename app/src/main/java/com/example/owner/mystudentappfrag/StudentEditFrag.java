@@ -1,5 +1,6 @@
 package com.example.owner.mystudentappfrag;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -87,6 +88,9 @@ public class StudentEditFrag extends Fragment {
                 studentToEdit.setName(Name.getText().toString());
                 studentToEdit.setPhone(phone.getText().toString());
                 studentToEdit.setChecked(checked.isChecked());
+
+                DialogFragment dialog = new SaveAlertDialog();
+                dialog.show(getFragmentManager(),"TAG");
 
                 getActivity().getFragmentManager().popBackStack();
             }

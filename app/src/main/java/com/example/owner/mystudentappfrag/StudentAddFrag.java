@@ -1,5 +1,6 @@
 package com.example.owner.mystudentappfrag;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -84,6 +85,9 @@ public class StudentAddFrag extends Fragment {
 
                     Model.instance().addStudent(st);
                     Log.d("TAG", "saving student to the db");
+
+                    DialogFragment dialog = new SaveAlertDialog();
+                    dialog.show(getFragmentManager(),"TAG");
 
                     getActivity().getFragmentManager().popBackStack();
                 }
