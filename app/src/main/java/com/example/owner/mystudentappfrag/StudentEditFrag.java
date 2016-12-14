@@ -41,9 +41,10 @@ public class StudentEditFrag extends Fragment {
         ImageView stdImage;
 
         Bundle StudentIdBundle = getArguments();
-
         View view = inflater.inflate(R.layout.student_edit_frag, container, false);
 
+        // inflate the menu
+        setHasOptionsMenu(true);
 
         //if(StudentIdBundle != null) {
             studentToShow = Model.instance().getStudent(StudentIdBundle.getInt("studentId"));
@@ -70,6 +71,7 @@ public class StudentEditFrag extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.studentappmenu,menu);
+        getActivity().setTitle("Students Details");
 
         menu.findItem(R.id.AddStudentButton).setVisible(false);
         menu.findItem(R.id.EditStudentButton).setVisible(true);

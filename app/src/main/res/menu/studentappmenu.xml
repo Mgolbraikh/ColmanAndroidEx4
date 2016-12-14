@@ -6,7 +6,8 @@
         android:visible="false"
         android:showAsAction="ifRoom"/>
     <item android:id="@+id/EditStudentButton"
-        android:icon="@drawable/edit_button"
+        android:icon="@drawable/edit"
         android:visible="false"
-        android:title="@string/Edit" />
+        android:title="@string/Edit"
+        android:showAsAction="ifRoom"/>
 </menu>

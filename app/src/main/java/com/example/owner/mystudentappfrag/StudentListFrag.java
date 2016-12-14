@@ -110,7 +110,7 @@ public class StudentListFrag extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.studentappmenu,menu);
-
+        getActivity().setTitle("Student List");
         menu.findItem(R.id.AddStudentButton).setVisible(true);
         menu.findItem(R.id.EditStudentButton).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
