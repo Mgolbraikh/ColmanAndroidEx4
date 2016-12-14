@@ -102,7 +102,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_buttons_size"
-        android:layout_gravity="end"
+        android:layout_gravity="bottom"
         android:orientation="horizontal">
 
         <Button
