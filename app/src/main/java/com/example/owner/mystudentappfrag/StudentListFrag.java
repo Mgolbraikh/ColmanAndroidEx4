@@ -65,10 +65,12 @@ public class StudentListFrag extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Log.d("TAG", "row selected " + position);
 
-                Fragment studentEditFrag = new StudentEditFrag();
+                Fragment studentEditFrag = new StudentDetailFrag();
                 FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
                 Bundle studentInfoToshow = new Bundle();
                 studentInfoToshow.putInt("studentId", ((Integer)studentsList.get(position).getId()));
+                studentInfoToshow.putString("Screen", "FromDetail");
+
                 studentEditFrag.setArguments(studentInfoToshow);
                 ftr.replace(R.id.StudentActivityMainView, studentEditFrag);
                 ftr.addToBackStack(null);

@@ -114,19 +114,6 @@ public class StudentAddFrag extends Fragment {
         // return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.AddStudentButton:
-            {
-                //onBackPressed();
-                break;
-            }
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     /*
        * To update the menu every time it is displayed
         */
