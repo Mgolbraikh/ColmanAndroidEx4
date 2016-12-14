@@ -12,7 +12,7 @@
 
     <!--This is the menu of the application-->
     <FrameLayout
-        android:id="@+id/StudentListFragmentview"
+        android:id="@+id/StudentActivityMainView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

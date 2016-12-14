@@ -6,9 +6,7 @@ package com.example.owner.mystudentappfrag;
 
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -61,6 +59,24 @@ public class StudentListFrag extends Fragment {
         _adapter = new StudentsAdapter();
         ListView list = (ListView) view.findViewById(R.id.studentlistViewview);
         list.setAdapter(_adapter);
+        list.setClickable(true);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Log.d("TAG", "row selected " + position);
+
+                Fragment studentEditFrag = new StudentEditFrag();
+                FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
+                Bundle studentInfoToshow = new Bundle();
+                studentInfoToshow.putInt("studentId", ((Integer)studentsList.get(position).getId()));
+                studentEditFrag.setArguments(studentInfoToshow);
+                ftr.replace(R.id.StudentActivityMainView, studentEditFrag);
+                ftr.addToBackStack(null);
+                ftr.show(studentEditFrag);
+                ftr.commit();
+
+            }
+        });
         //TextView labelTv = (TextView) view.findViewById(R.id.firstFragmentTextView);
 
         Log.d("TAG", "fragment create view student list");
@@ -109,9 +125,14 @@ public class StudentListFrag extends Fragment {
                 Fragment studentaddfragview = new StudentAddFrag();
 
                 FragmentTransaction ftr = getActivity().getFragmentManager().beginTransaction();
-                ftr.replace(R.id.StudentListFragmentview, studentaddfragview);
+                ftr.add(R.id.StudentActivityMainView, studentaddfragview);
+                ftr.addToBackStack(null);
                 ftr.show(studentaddfragview);
+                ftr.hide(this);
                 ftr.commit();
+
+                // TODO : ziv read this
+                // This is add and not replace fragment because in REPLACE the buttons on the screen showing annoing and in this case they are hiding while user inputs
 
                 //onBackPressed();
                 break;
