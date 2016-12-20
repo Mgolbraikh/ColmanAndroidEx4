@@ -12,5 +12,7 @@
     <string name="delete_button">Delete</string>
     <string name="cancel_button">Cancel</string>
     <string name="checkbox_string">CheckBox</string>
+    <string name="birthday">Birth date:</string>
+    <string name="time">Birth time:</string>
 
 </resources>

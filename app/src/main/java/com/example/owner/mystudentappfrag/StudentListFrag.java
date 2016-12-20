@@ -79,29 +79,7 @@ public class StudentListFrag extends Fragment {
 
             }
         });
-        //TextView labelTv = (TextView) view.findViewById(R.id.firstFragmentTextView);
 
-        Log.d("TAG", "fragment create view student list");
-//        Button cancel = (Button) view.findViewById(R.id.firstFragmentCancel);
-//        Button save = (Button) view.findViewById(R.id.firstFragmentSave);
-//
-//        cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (delegate != null) {
-//                    delegate.onCancel();
-//                }
-//            }
-//        });
-//
-//        save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (delegate != null) {
-//                    delegate.onSave(student);
-//                }
-//            }
-//        });
         return view;
     }
 
@@ -116,7 +94,6 @@ public class StudentListFrag extends Fragment {
         menu.findItem(R.id.AddStudentButton).setVisible(true);
         menu.findItem(R.id.EditStudentButton).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
-        // return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

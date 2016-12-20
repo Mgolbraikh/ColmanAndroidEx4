@@ -89,6 +89,35 @@
                 android:id="@+id/StudentAddressAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/birthday" />
+            <com.example.owner.mystudentappfrag.EditDateTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/StudentAddBirthday"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time" />
+            <com.example.owner.mystudentappfrag.EditTimeTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/StudentAddTime"/>
         </LinearLayout>
 
         <CheckBox

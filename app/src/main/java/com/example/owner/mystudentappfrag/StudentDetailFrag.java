@@ -31,6 +31,8 @@ public class StudentDetailFrag extends Fragment {
     private TextView phone;
     private CheckBox checked;
     private ImageView stdImage;
+    private DateTextView date;
+    private TimeTextView time;
     private Student studentToShow;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,32 +46,36 @@ public class StudentDetailFrag extends Fragment {
 
         if(StudentIdBundle != null)
         {
-                studentToShow = Model.instance().getStudent(StudentIdBundle.getInt("studentId"));
+            studentToShow = Model.instance().getStudent(StudentIdBundle.getInt("studentId"));
 
-                if(studentToShow == null)
-                {
-                    getActivity().getFragmentManager().popBackStack();
-                    return view;
-                }
-
-                txId = (TextView) view.findViewById(R.id.StudentIdView);
-                Name = (TextView) view.findViewById(R.id.StudentNameView);
-                Address = (TextView) view.findViewById(R.id.StudentAddressView);
-                phone = (TextView) view.findViewById(R.id.StudentPhoneView);
-                checked = (CheckBox) view.findViewById(R.id.StudentcheckBoxView);
-                stdImage = (ImageView) view.findViewById(R.id.StudentImageView);
-
-                txId.setText(Integer.toString(studentToShow.getId()));
-                Name.setText(studentToShow.getName());
-                Address.setText(studentToShow.getAddress());
-                checked.setChecked(studentToShow.getChecked());
-                phone.setText(studentToShow.getPhone());
-                stdImage.setImageResource(R.drawable.images);
-            }
-            else {
-                // Someone came from delete = popback
+            if(studentToShow == null)
+            {
                 getActivity().getFragmentManager().popBackStack();
+                return view;
             }
+
+            txId = (TextView) view.findViewById(R.id.StudentIdView);
+            Name = (TextView) view.findViewById(R.id.StudentNameView);
+            Address = (TextView) view.findViewById(R.id.StudentAddressView);
+            phone = (TextView) view.findViewById(R.id.StudentPhoneView);
+            checked = (CheckBox) view.findViewById(R.id.StudentcheckBoxView);
+            stdImage = (ImageView) view.findViewById(R.id.StudentImageView);
+            date = (DateTextView)view.findViewById(R.id.StudentDateView);
+            time = (TimeTextView)view.findViewById(R.id.StudentTimeView);
+
+            txId.setText(Integer.toString(studentToShow.getId()));
+            Name.setText(studentToShow.getName());
+            Address.setText(studentToShow.getAddress());
+            checked.setChecked(studentToShow.getChecked());
+            phone.setText(studentToShow.getPhone());
+            stdImage.setImageResource(R.drawable.images);
+            date.setDate(studentToShow.getYear(),studentToShow.getMonth(),studentToShow.getDay());
+            time.setTime(studentToShow.getHour(),studentToShow.getMinute());
+        }
+        else {
+            // Someone came from delete = popback
+            getActivity().getFragmentManager().popBackStack();
+        }
 
 
         return view;

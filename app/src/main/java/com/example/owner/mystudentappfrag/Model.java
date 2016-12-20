@@ -16,7 +16,7 @@ public class Model {
         final private static Model instance = new Model();
         private Model(){
             for (int i = 0;i<10;i++){
-                Student st = new Student("name " + i,i,((Integer)(i*127)).toString(),"Address  " + i);
+                Student st = new Student("name " + i,i,((Integer)(i*127)).toString(),"Address  " + i, 1990, 11, 19, 6, 20);
                 if (i %3 ==0) {
                     st.setChecked(true);}
                 else

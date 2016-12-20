@@ -2,26 +2,16 @@ package com.example.owner.mystudentappfrag;
 
 import android.app.DialogFragment;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by owner on 13-Dec-16.
@@ -34,14 +24,13 @@ public class StudentAddFrag extends Fragment {
         void onSave(Student st);
     }
 
-    Student st;
     EditText StudentID;
     EditText StudentName;
     EditText StudentAddress;
     EditText StudentPhone;
     CheckBox StudentChecked;
-    Student _currStudent;
-
+    EditDateTextView StudentDate;
+    EditTimeTextView StudentTime;
     StudentAddFrag.Delegate delegate;
     public void setDelegate(StudentAddFrag.Delegate dlg){
         this.delegate = dlg;
@@ -63,13 +52,13 @@ public class StudentAddFrag extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.add_student_frag, container, false);
-        // On create of new student
-
         StudentID = (EditText) view.findViewById(R.id.StudentIDAdd);
         StudentName = (EditText) view.findViewById(R.id.StudentNameAdd);
         StudentAddress = (EditText) view.findViewById(R.id.StudentAddressAdd);
         StudentPhone = (EditText) view.findViewById(R.id.StudentPhoneAdd);
         StudentChecked = (CheckBox) view.findViewById(R.id.StudentcheckBoxAdd);
+        StudentDate = (EditDateTextView)view.findViewById(R.id.StudentAddBirthday);
+        StudentTime = (EditTimeTextView)view.findViewById(R.id.StudentAddTime);
 
         Button save = (Button) view.findViewById(R.id.StudentAddAddButton);
             save.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +67,7 @@ public class StudentAddFrag extends Fragment {
                     Student st = new Student(StudentName.getText().toString(),
                             Integer.parseInt(StudentID.getText().toString()),
                             StudentAddress.getText().toString(),
-                            StudentPhone.getText().toString());
+                            StudentPhone.getText().toString(), StudentDate.getYear(), StudentDate.getMonth(), StudentDate.getDay(), StudentTime.getHour(), StudentTime.getMinute());
 
                     // Adding  checked and picture
                     st.setChecked(StudentChecked.isChecked());

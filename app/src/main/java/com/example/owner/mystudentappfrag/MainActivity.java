@@ -17,13 +17,12 @@ public class MainActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Create the frag view
-        final StudentListFrag studentlistFragment = new StudentListFrag();
+        final StudentListFrag studentListFragment = new StudentListFrag();
 
         FragmentTransaction ftr = getFragmentManager().beginTransaction();
-        ftr.replace(R.id.StudentActivityMainView,studentlistFragment);
-        ftr.show(studentlistFragment);
+        ftr.replace(R.id.StudentActivityMainView,studentListFragment);
+        ftr.show(studentListFragment);
         ftr.commit();
-        //ftr.show(studentlistFragment);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

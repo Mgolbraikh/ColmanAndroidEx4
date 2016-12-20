@@ -30,6 +30,8 @@ public class StudentEditFrag extends Fragment {
     private CheckBox checked;
     private ImageView stdImage;
     private Student studentToEdit;
+    private EditDateTextView date;
+    private  EditTimeTextView time;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,13 +50,16 @@ public class StudentEditFrag extends Fragment {
         phone = (TextView) view.findViewById(R.id.StudentPhoneAdd);
         checked = (CheckBox) view.findViewById(R.id.StudentcheckBoxAdd);
         stdImage = (ImageView) view.findViewById(R.id.StudentImageAdd);
+        date = (EditDateTextView)view.findViewById(R.id.StudentEditBirthday);
+        time = (EditTimeTextView)view.findViewById(R.id.StudentEditTime);
 
         txId.setText(Integer.toString(studentToEdit.getId()));
         Name.setText(studentToEdit.getName());
         Address.setText(studentToEdit.getAddress());
         checked.setChecked(studentToEdit.getChecked());
         phone.setText(studentToEdit.getPhone());
-
+        date.setDate(studentToEdit.getYear(),studentToEdit.getMonth(),studentToEdit.getDay());
+        time.setTime(studentToEdit.getHour(),studentToEdit.getMinute());
         Button cancelButton = (Button) view.findViewById(R.id.StudentAddCancelButton);
         Button deleteButton = (Button) view.findViewById(R.id.StudentDeleteButton);
         Button saveButton = (Button) view.findViewById(R.id.StudentAddAddButton);
@@ -88,7 +93,11 @@ public class StudentEditFrag extends Fragment {
                 studentToEdit.setName(Name.getText().toString());
                 studentToEdit.setPhone(phone.getText().toString());
                 studentToEdit.setChecked(checked.isChecked());
-
+                studentToEdit.setYear(date.getYear());
+                studentToEdit.setMonth(date.getMonth());
+                studentToEdit.setDay(date.getDay());
+                studentToEdit.setHour(time.getHour());
+                studentToEdit.setMinute(time.getMinute());
                 DialogFragment dialog = new SaveAlertDialog();
                 dialog.show(getFragmentManager(),"TAG");
 
