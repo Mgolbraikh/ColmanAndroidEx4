@@ -6,10 +6,11 @@ package com.example.owner.mystudentappfrag;
 
 public class Utils {
     public static String getTimeFormat(int hour,int minute){
-        String suffix = "PM";
+        String suffix = "AM";
 
-        if (hour < 12){
-            suffix="AM";
+        if (hour >= 12){
+            suffix="PM";
+            hour = hour %12;
         }
         return String.format("%02d:%02d %s", hour,minute,suffix);
     }

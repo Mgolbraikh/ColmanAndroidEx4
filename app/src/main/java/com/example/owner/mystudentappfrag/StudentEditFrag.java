@@ -98,10 +98,11 @@ public class StudentEditFrag extends Fragment {
                 studentToEdit.setDay(date.getDay());
                 studentToEdit.setHour(time.getHour());
                 studentToEdit.setMinute(time.getMinute());
-                DialogFragment dialog = new SaveAlertDialog();
-                dialog.show(getFragmentManager(),"TAG");
+
 
                 getActivity().getFragmentManager().popBackStack();
+                DialogFragment dialog = new SaveAlertDialog();
+                dialog.show(getFragmentManager(),"TAG");
             }
         });
 

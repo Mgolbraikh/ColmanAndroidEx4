@@ -110,10 +110,6 @@ public class StudentListFrag extends Fragment {
                 ftr.hide(this);
                 ftr.commit();
 
-                // TODO : ziv read this
-                // This is add and not replace fragment because in REPLACE the buttons on the screen showing annoing and in this case they are hiding while user inputs
-
-                //onBackPressed();
                 break;
             }
         }
@@ -150,15 +146,7 @@ public class StudentListFrag extends Fragment {
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
                 view = LayoutInflater.from(getActivity()).inflate(R.layout.studentlistrow, null);
-//                view.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent openDetails = new Intent(StudentListActivity.this, StudentDetailsActivity.class);
-//                        openDetails.putExtra("id",((Student)getItem((int)view.getTag())).getId());
-//                        startActivityForResult(openDetails,2);
-//
-//                    }
-                //});
+
                 // TODO add checkbox change
                 final CheckBox cb = (CheckBox) view.findViewById(R.id.checkBoxRow);
                 cb.setOnClickListener(new View.OnClickListener() {

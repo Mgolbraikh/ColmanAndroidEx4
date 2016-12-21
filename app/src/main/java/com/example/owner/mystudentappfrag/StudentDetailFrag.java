@@ -38,11 +38,13 @@ public class StudentDetailFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        Bundle StudentIdBundle = getArguments();
+
         View view = inflater.inflate(R.layout.student_details_frag, container, false);
 
         // inflate the menu
         setHasOptionsMenu(true);
+
+        Bundle StudentIdBundle = getArguments();
 
         if(StudentIdBundle != null)
         {
@@ -81,6 +83,14 @@ public class StudentDetailFrag extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume(){
+
+        // Setting checked for popstack
+        checked.setChecked(studentToShow.getChecked());
+
+        super.onResume();
+    }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
@@ -90,7 +100,6 @@ public class StudentDetailFrag extends Fragment {
         menu.findItem(R.id.AddStudentButton).setVisible(false);
         menu.findItem(R.id.EditStudentButton).setVisible(true);
         super.onCreateOptionsMenu(menu, inflater);
-        // return true;
     }
 
     @Override
